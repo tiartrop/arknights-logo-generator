@@ -1,0 +1,233 @@
+:root {
+  --theme-color: #158fc5;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(171, 171, 171, .5);
+}
+
+html {
+  font-family: apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+@screen lg {
+  body {
+    overflow-y: hidden;
+  }
+}
+
+a {
+  font-weight: 400;
+  color: var(--theme-color);
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: var(--theme-color);
+}
+
+.toggle {
+  @apply shrink-0 h-6 w-12 cursor-pointer appearance-none b bg-gray/40 dark:bg-gray/25 transition duration-200 ease-in-out;
+  border-radius: 1.5rem;
+  box-shadow: white -1.5rem 0px 0px 3px inset, white 0 0 0 3px inset;
+  border-color: rgb(225, 227, 231);
+}
+
+.toggle:checked,
+.toggle[checked="true"] {
+  background-color: var(--theme-color);
+  box-shadow: white 1.5rem 0 0 3px inset, white 0 0 0 3px inset;
+  border-color: var(--theme-color);
+}
+
+.dark .toggle {
+  box-shadow: rgb(23, 23, 23) -1.5rem 0px 0px 3px inset, rgb(23, 23, 23) 0 0 0 3px inset;
+  border-color: rgb(49, 51, 53);
+}
+
+.dark .toggle:checked,
+.dark .toggle[checked="true"] {
+  box-shadow: rgb(39, 42, 47) 1.5rem 0 0 3px inset, rgb(39, 42, 47) 0 0 0 3px inset;
+  border-color: var(--theme-color);
+}
+
+.checkbox {
+  @apply w-3.5 h-3.5 cursor-pointer appearance-none b-2;
+  color: var(--theme-color);
+  border-color: var(--theme-color);
+}
+
+.checkbox:checked::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: currentColor;
+  margin: 1px;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgb(228, 231, 237);
+  height: 1.5px;
+}
+
+input[type="range"]::-moz-range-track {
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgb(228, 231, 237);
+  height: 1.5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -6px;
+  background: white;
+  border: 1px solid var(--theme-color);
+  border-radius: 6px;
+  height: 12px;
+  width: 12px;
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -6px;
+  background: white;
+  border: 1px solid var(--theme-color);
+  border-radius: 6px;
+  height: 12px;
+  width: 12px;
+  cursor: pointer;
+}
+
+.dark input[type="range"]::-webkit-slider-runnable-track {
+  background: rgb(65, 66, 67);
+}
+
+.dark input[type="range"]::-moz-range-track {
+  background: rgb(65, 66, 67);
+}
+
+.dark input[type="range"]::-webkit-slider-thumb {
+  background: rgb(23, 23, 23);
+}
+
+.dark input[type="range"]::-moz-range-thumb {
+  background: rgb(23, 23, 23);
+}
+
+.btn-box {
+  @apply text-base flex justify-center gap-5 bg-base sticky bottom-0 pb-6 z-2;
+
+  button {
+    @apply btn-default b-2 b-#158fc5 hover:op-85;
+  }
+}
+
+.btn-box::before {
+  @apply content-empty absolute pointer-events-none h-8 left-0 right-0 bottom-full z-1;
+  background: linear-gradient(rgba(255, 255, 255, 0), white);
+}
+
+.dark .btn-box::before {
+  background: linear-gradient(rgba(23, 23, 23, 0), rgb(23, 23, 23));
+}
+
+@screen lg {
+  .btn-box {
+    @apply justify-between gap-0 text-lg pb-7;
+  }
+}
+
+.group .head {
+  @apply py-2 text-lg opacity-50;
+  letter-spacing: .125em;
+}
+
+.group .body {
+  @apply p-4 b rounded border-base
+}
+
+.main-letter {
+  @apply p-[6px] font-size-18px cursor-pointer b border-gray/70 dark:border-gray/60 op-65 hover:op-50 relative;
+}
+
+.main-letter.checked {
+  color: var(--theme-color);
+  border-color: var(--theme-color);
+  background-color: rgba(21, 143, 197, 0.1);
+  opacity: 1;
+}
+
+.main-letter.checked:hover {
+  opacity: 0.85;
+}
+
+.main-letter::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-bottom: 12px solid currentColor;
+  border-left: 12px solid transparent;
+  opacity: 0.35;
+}
+
+.main-letter.checked::before {
+  opacity: 0.8;
+}
+
+.radio {
+  input[type="radio"] {
+    display: none;
+  }
+
+  label {
+    @apply: inline-block px-2.5 py-0.75 b-y-1 b-l-1 border-base cursor-pointer transition duration-200 ease-in-out;
+  }
+
+  label[data-checked="true"] {
+    color: white;
+    background-color: var(--theme-color);
+    border-color: var(--theme-color);
+  }
+
+  label[disabled="true"] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  label::after {
+    content: attr(data-text);
+  }
+
+
+  label:first-of-type {
+    border-top-left-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+  }
+
+  label:last-of-type {
+    border-right-width: 1px;
+    border-top-right-radius: .25rem;
+    border-bottom-right-radius: .25rem;
+  }
+}
