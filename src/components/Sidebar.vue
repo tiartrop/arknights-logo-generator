@@ -62,24 +62,24 @@ defineExpose({ reset })
   <div>
     <div
       flex flex-col gap-3 text-sm
-      max-lg="px-5 gap-2.5" lg="px-4 of-y-auto absolute top-0 right-0 bottom-0 left-0" xxl="pr-[calc(100%-23.5rem)]"
+      max-lg="px-3 gap-2.5" lg="px-4 of-y-auto absolute top-0 right-0 bottom-0 left-0" xxl="pr-[calc(100%-23.5rem)]"
     >
       <div relative>
-        <input v-model="mainText" type="text" placeholder="明日方舟" p="x3 y2" maxlength="4" text-xl input-full>
-        <button v-if="mainText" text-xl w-10 absolute right-0 top-2 bottom-2 opacity-30 hover:opacity-90 @click="() => mainText = ''">
+        <input v-model="mainText" type="text" placeholder="明日方舟" p="x3 y2" maxlength="4" max-lg="text-lg" text-xl input-full>
+        <button v-if="mainText" max-lg="text-lg" text-xl w-10 right-0 top-2 bottom-2 opacity-30 hover:opacity-90 absolute @click="() => mainText = ''">
           <span i-carbon-close block ma />
         </button>
       </div>
       <div relative>
         <input
-          ref="subInput" v-model="subText" type="text" placeholder="-    ARKNIGHTS    -" p="x3 y2" maxlength="80" text-xl input-full
+          ref="subInput" v-model="subText" type="text" placeholder="-    ARKNIGHTS    -" p="x3 y2" maxlength="80" max-lg="text-lg" text-xl input-full
           spellcheck="false" title="只能输入英文字母、数字、符号和空格"
         >
-        <button v-if="subText" absolute text-xl w-10 right-0 top-2 bottom-2 opacity-30 hover:opacity-90 @click="() => subText = ''">
+        <button v-if="subText" max-lg="text-lg" text-xl w-10 right-0 top-2 bottom-2 opacity-30 hover:opacity-90 absolute @click="() => subText = ''">
           <span i-carbon-close block ma />
         </button>
       </div>
-      <div>
+      <div pt-0.5>
         <label flex items-center>
           <input v-model="transparent" class="toggle" type="checkbox" name="transparent">
           <span for="transparent" cursor-pointer pl-2>透明背景</span>

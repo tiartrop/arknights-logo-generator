@@ -133,7 +133,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .btn-box {
-  @apply text-base flex justify-center gap-5 bg-base sticky bottom-0 pb-6 z-2;
+  @apply text-base flex justify-center gap-4 bg-base sticky bottom-0 pb-6 z-2;
 
   button {
     @apply btn-default b-2 b-#158fc5 hover:op-85;
