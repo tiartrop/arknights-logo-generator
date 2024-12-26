@@ -41,7 +41,7 @@ export async function draw(img: HTMLImageElement, config: State) {
     }
   }
 
-  const imgEle = document.querySelector('img')
+  const imgEle = document.querySelector('#app img') as HTMLImageElement
   imgEle.style.width = `${_width}px`
   imgEle.style.height = `${_height}px`
 

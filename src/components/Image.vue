@@ -101,10 +101,36 @@ function output() {
   a.download = `arknights-logo-generator-${+Date.now()}.${mimeType.value}`
   a.click()
   document.body.removeChild(a)
+
+  if (isMobileDevice()) {
+    (document.querySelector('#output-box-container img') as HTMLImageElement).src = el.value.src;
+    (document.querySelector('#output-box-container') as HTMLDivElement).style.display = 'block'
+  }
+}
+
+function isMobileDevice() {
+  if (window.navigator && (window.navigator as any).userAgentData?.mobile !== undefined) {
+    return (window.navigator as any).userAgentData.mobile
+  }
+
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
 }
 
 onMounted(() => {
   drawImage({ ...storage.value })
+
+  const outputBoxElement = document.createElement('div')
+  outputBoxElement.id = 'output-box-container'
+  outputBoxElement.innerHTML = `
+    <div class="flex flex-col justify-center items-center absolute left-50% top-50% translate--50% max-w-full w-200 px-3 py-9 select-none b-rounded-md bg-white dark:bg-#222 color-base">
+      <p class="text-lg tracking-wider">生成完毕</p>
+      <img class="h-auto max-h-[calc(100vh-14rem)] w-full my-4 shadow-xl b-rounded-md bg-[#9ca3af33] object-contain">
+      <p class="my-4">手机导出失败时可尝试长按图片 <b>“添加到照片”</b></p>
+      <button class="btn-default text-sm b-#158fc5 bg-#158fc5 text-white">关闭窗口</button>
+    </div>
+  `
+  outputBoxElement.querySelector('button').onclick = () => outputBoxElement.style.display = 'none'
+  document.body.appendChild(outputBoxElement)
 })
 
 defineExpose({ drawImage, input, output })
@@ -112,10 +138,9 @@ defineExpose({ drawImage, input, output })
 
 <template>
   <img ref="el" max-lg="!h-auto" max-xl="max-w-full" class="max-w-[945px] b border-base bg-[#9ca3af33] object-contain">
-  <!-- <div id="loading" class="absolute w-full h-full top--9 left-0 backdrop-blur-sm bg-slate-400/5 z-3 hidden" /> -->
   <div hidden lg="block absolute bottom-7 left-50% translate-x--50% " text-base>
     💡&nbsp;
-    <span class="text-#158fc5 hover:op-85 hover:cursor-pointer" @click="input">「打开图像」</span>
+    <span class="text-#158fc5 hover:op-85 hover:cursor-pointer" @click="input">「打开图片」</span>
     <span op-65>即可更换背景，支持拖拽及粘贴图片</span>
   </div>
 </template>>

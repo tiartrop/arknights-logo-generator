@@ -3,7 +3,7 @@ import DarkSwitcher from './DarkSwitcher.vue'
 </script>
 
 <template>
-  <header class="bg-base flex items-center border-b border-base">
+  <header class="flex items-center border-b border-base">
     <h1 flex-auto text-center font-400 text-xl tracking-wider max-sm="text-base text-left pl-3" max-lg="pl-20">
       明日方舟标题生成器
     </h1>

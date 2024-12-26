@@ -113,10 +113,10 @@ defineExpose({ reset })
           重置
         </button>
         <button class="text-#158fc5" @click="emit('input')">
-          打开图像
+          打开图片
         </button>
         <button class="bg-#158fc5 text-white" @click="emit('output')">
-          导出图像
+          导出图片
         </button>
       </div>
     </div>

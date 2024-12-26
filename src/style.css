@@ -161,7 +161,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .group .body {
-  @apply p-4 b rounded border-base
+  @apply p-4 b rounded border-base;
 }
 
 .main-letter {
@@ -201,7 +201,7 @@ input[type="range"]::-moz-range-thumb {
   }
 
   label {
-    @apply: inline-block px-2.5 py-0.75 b-y-1 b-l-1 border-base cursor-pointer transition duration-200 ease-in-out;
+    @apply inline-block px-2.5 py-0.75 b-y-1 b-l-1 border-base cursor-pointer transition duration-200 ease-in-out;
   }
 
   label[data-checked="true"] {
@@ -230,4 +230,9 @@ input[type="range"]::-moz-range-thumb {
     border-top-right-radius: .25rem;
     border-bottom-right-radius: .25rem;
   }
+}
+
+#output-box-container {
+  @apply fixed top-0 left-0 w-full h-full hidden z-10;
+  background-color: rgba(121, 121, 121, .5);
 }
