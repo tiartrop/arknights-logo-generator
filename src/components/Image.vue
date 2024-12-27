@@ -116,9 +116,7 @@ function isMobileDevice() {
   return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
 }
 
-onMounted(() => {
-  drawImage({ ...storage.value })
-
+function outputDialog() {
   const outputBoxElement = document.createElement('div')
   outputBoxElement.id = 'output-box-container'
   outputBoxElement.innerHTML = `
@@ -130,7 +128,13 @@ onMounted(() => {
     </div>
   `
   outputBoxElement.querySelector('button').onclick = () => outputBoxElement.style.display = 'none'
-  document.body.appendChild(outputBoxElement)
+
+  return outputBoxElement
+}
+
+onMounted(() => {
+  drawImage({ ...storage.value })
+  document.body.appendChild(outputDialog())
 })
 
 defineExpose({ drawImage, input, output })
