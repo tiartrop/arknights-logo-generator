@@ -142,7 +142,7 @@ defineExpose({ drawImage, input, output })
 
 <template>
   <img ref="el" max-lg="!h-auto" max-xl="max-w-full" class="max-w-[945px] b border-base bg-[#9ca3af33] object-contain">
-  <div hidden lg="block absolute bottom-7 left-50% translate-x--50% " text-base>
+  <div hidden lg="block absolute bottom-7 min-w-100 left-50% translate-x--50% " text-base>
     💡&nbsp;
     <span class="text-#158fc5 hover:op-85 hover:cursor-pointer" @click="input">「打开图片」</span>
     <span op-65>即可更换背景，支持拖拽及粘贴图片</span>
