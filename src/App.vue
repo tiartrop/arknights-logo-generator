@@ -21,7 +21,6 @@ const reset = () => sidebarRef.value.reset()
         id="container"
         m-auto my-0 relative
         max-lg="mx-3 mb-5 sticky top-0 z-2"
-        xxl="ml-[calc((100%-1600px)/2)]"
       >
         <Image ref="main" />
       </div>

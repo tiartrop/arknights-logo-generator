@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { State } from '../types.js'
+import { watchDebounced } from '@vueuse/core'
 import settings from '../settings.js'
 import Footer from './Footer.vue'
 import LetterSetting from './LetterSetting.vue'
@@ -51,9 +52,9 @@ function _drawImage() {
   emit('drawImage', { ...storage.value })
 }
 
-watch(mySettings, () => {
+watchDebounced(mySettings, () => {
   _drawImage()
-})
+}, { debounce: 50 })
 
 defineExpose({ reset })
 </script>
