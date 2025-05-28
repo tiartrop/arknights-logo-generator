@@ -147,4 +147,4 @@ defineExpose({ drawImage, input, output })
     <span class="text-#158fc5 hover:op-85 hover:cursor-pointer" @click="input">「打开图片」</span>
     <span op-65>即可更换背景，支持拖拽及粘贴图片</span>
   </div>
-</template>>
+</template>
